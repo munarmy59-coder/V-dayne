@@ -1,0 +1,45 @@
+/* BỐ CỤC & KIỂU CHUNG */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #ffe6e6;
+  color: #333;
+  text-align: center;
+}
+
+/* Header */
+header {
+  background: #ff4d4d;
+  color: white;
+  padding: 1rem 0;
+}
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+}
+header p {
+  margin: 0.5rem 0;
+}
+
+/* Hero */
+.hero {
+  margin-top: 2rem;
+}
+.hero img {
+  width: 200px;
+  animation: float 3s infinite ease-in-out;
+}
+
+/* Animation example */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  padding: 0.5rem 0;
+  background: #ffcccc;
+}
