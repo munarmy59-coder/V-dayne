@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine?</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  text-align: center;
+}
+
+h1 {
+  margin-top: 80px;
+  font-size: 40px;
+  color: white;
+}
+
+.buttons {
+  margin-top: 40px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+#yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background: white;
+  color: #ff4d6d;
+  position: absolute;
+}
+
+/* HEART ANIMATION */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(45deg);
+  animation: fall 6s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes fall {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Will You Be My Valentine? 💖</h1>
+
+<div class="buttons">
+  <button id="yes">Yes 💘</button>
+  <button id="no">No 💔</button>
+</div>
+
+<audio autoplay loop>
+  <source src="YOUR-MUSIC-LINK.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// NO BUTTON CHẠY TRỐN
+const noBtn = document.getElementById("no");
+noBtn.addEventListener("mouseover", function() {
+  const x = Math.random() * window.innerWidth;
+  const y = Math.random() * window.innerHeight;
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+// YES BUTTON
+document.getElementById("yes").addEventListener("click", function() {
+  document.body.innerHTML = "<h1 style='margin-top:200px;color:white;'>Yayyyy!!! I Love You 💖💖💖</h1>";
+});
+
+// TẠO TIM RƠI
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
